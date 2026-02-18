@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            padding: 20px; 
+            background-color: #1b13fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .calculator-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(12, 215, 73, 0.2);
+            max-width: 300px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+        input, select, button { 
+            padding: 15px; 
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        button {
+            background-color: #0997cf;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0e41f9;
+        }
+        h2 {
+            text-align: center;
+            color: #c11616;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-box">
+        <h1>Calculator 2.0</h1>
+        <input type="number" id="num1" placeholder="first number">
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="sub">Subtract</option>
+            <option value="mul">Multiply</option>
+            <option value="div">Divide</option>
+        </select>
+        <input type="number" id="num2" placeholder="second number">
+        <button onclick="calculate()">Calculate</button>
+        <h2>Result: <span id="result"></span></h2>
+    </div>
+
+<script>
+function calculate() {
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let operation = document.getElementById("operation").value;
+    let result;
+    
+    if (operation === "add"){
+        result = num1 + num2;
+    }
+    else if (operation === "sub"){
+        result = num1 - num2;
+    }
+    else if (operation === "mul"){
+        result = num1 * num2;
+    }
+    else if (operation === "div"){
+        if (num2 === 0){
+            alert("Cannot divide by zero");
+            return;
+        }
+        result = num1 / num2;
+    }
+    document.getElementById("result").textContent = result;
+}
+</script>
+</body>
+</html>
